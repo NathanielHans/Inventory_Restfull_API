@@ -1,0 +1,73 @@
+GET http://127.0.0.1:8000/api/ruangan
+###
+GET http://127.0.0.1:8000/api/pengajuan
+###
+GET http://127.0.0.1:8000/api/pengajuan/1
+###
+GET http://127.0.0.1:8000/api/barang
+###
+GET http://127.0.0.1:8000/api/barang/1
+###
+GET http://127.0.0.1:8000/api/qrcode/1
+###
+POST http://127.0.0.1:8000/api/barang
+Content-Type: application/json
+Accept: application/json
+
+{
+    "nama_barang": "Terminal",
+    "merk_type": "Uticon",
+    "status": "Baik",
+    "harga_beli": "75000",
+    "tanggal_pembelian": "2023-10-17",
+    "id_ruangan": "1"
+}
+
+###
+PATCH  http://127.0.0.1:8000/api/barang
+Content-Type: application/json
+Accept: application/json
+
+{
+    "nama_barang": "Terminal",
+    "merk_type": "Uticon",
+    "status": "Baik",
+    "harga_beli": "100000",
+    "tanggal_pembelian": "2023-10-17",
+    "id_ruangan": "1"
+}
+
+###
+GET http://127.0.0.1:8000/sanctum/csrf-cookie
+
+###
+POST http://127.0.0.1:8000/api/register
+Content-Type: application/json
+Accept: application/json
+
+{
+    "username" : "Hans",
+    "password" : "12345678",
+    "email" : "dryan2506@gmail.com",  
+    "telepon" : "085241113455"
+}
+
+###
+POST http://127.0.0.1:8000/api/login
+Content-Type: application/json
+Accept: application/json
+
+{
+    "username" : "admin",
+    "password" : "admin"
+}
+
+###
+POST  http://127.0.0.1:8000/api/ruangan
+Content-Type: application/json
+Accept: application/json
+
+{
+    "nama_ruangan": "K.204",
+    "jenis_ruangan": "Kelas"
+}

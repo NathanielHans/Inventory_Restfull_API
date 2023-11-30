@@ -1,0 +1,12 @@
+.pengajuan {
+display: flex;
+background-color: white;
+}
+
+.pengajuan > div {
+background-color: lightgray;
+margin: 10px;
+padding: 20px;
+font-size: 30px;
+border-radius: 20px;
+}
