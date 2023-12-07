@@ -71,7 +71,7 @@ class PengajuanController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdatePengajuanRequest $request, Pengajuan $pengajuan)
+    public function update(UpdatePengajuanRequest $request, $id)
     {
         $validatedData = $request->validate([
             'isi_pengajuan' => 'required|string', 
@@ -79,6 +79,11 @@ class PengajuanController extends Controller
             'id_user' => 'required|integer', 
             'id_barang' => 'required|integer', 
         ]);
+        $pengajuan = Pengajuan::find($id);
+
+        if (!$pengajuan) {
+            $pengajuan = new Pengajuan;
+        }
     
         $pengajuan->isi_pengajuan = $validatedData['isi_pengajuan'];
         $pengajuan->tanggal_pengajuan = $validatedData['tanggal_pengajuan'];
@@ -105,5 +110,19 @@ class PengajuanController extends Controller
         } else {
             return response()->json(['message' => 'Data Pengajuan gagal dihapus']);
         }
+    }
+
+    public function Confirm($id)
+    {
+        $Ajuan = Pengajuan::find($id);
+        if (!$Ajuan) {
+            return response()->json(['message' => 'Data penyewaan tidak ditemukan.']);
+            // return redirect()->back()->with('error', 'Data penyewaan tidak ditemukan.');
+        }
+        // dd($Ajuan);
+        $Ajuan->status = 'Sudah Konfirmasi';
+        $Ajuan->save();
+
+        return response()->json(['message' => 'Data Pengajuan Sudah di Konfirmasi']);
     }
 }

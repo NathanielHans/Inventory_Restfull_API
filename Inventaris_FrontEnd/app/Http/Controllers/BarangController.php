@@ -64,6 +64,7 @@ class BarangController extends Controller
             ->size(150)
             ->errorCorrection('H')
             ->generate($origin);
+        $response = Http::get('http://127.0.0.1:8000/api/qrcode/'.$id);
         //return view('qrcode', compact('qrCode'));
         return view('Barang.qrcode', compact('qrCode', 'data'));
     }
@@ -77,5 +78,36 @@ class BarangController extends Controller
     public function create()
     {
         return view('Barang.addBarang');
+    }
+    public function update(Request $request, $id)
+    {
+        $validatedData = $request->validate([
+            'nama_barang' => 'required|max:50', 
+            'merk_type' => 'required|max:50',
+            'kategori' => 'required|max:50',
+            'harga_beli' => 'required|numeric', 
+            'tanggal_pembelian' => 'required|date',
+            'tanggal_registrasi' => 'required|date',
+            'ruangan' => 'required|max:50', 
+            'penanggung_jawab' => 'required|max:50', 
+        ]);
+        $response = Http::patch('http://127.0.0.1:8000/api/barang/'.$id, $validatedData);
+        if ($response->successful()) {
+            // If successful, fetch the updated list of barangs
+            $barangsResponse = Http::get('http://127.0.0.1:8000/api/barang');
+            $barangs = json_decode($barangsResponse);
+            
+            // Extract the JSON response from the HTTP response
+            $responseData = json_decode($response);
+            $message = $responseData->message;
+            
+            // Return the view with the updated list of barangs
+            return view('Barang.barang', ['message' => $message, 'barangs' => $barangs]);
+        } else {
+            // If the request was not successful, handle the error as needed
+            // You might want to add more error handling logic here
+            return view('Barang.barang', ['error' => 'Failed to store barang']);
+        }
+
     }
 }

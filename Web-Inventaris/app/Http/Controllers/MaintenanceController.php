@@ -57,7 +57,7 @@ class MaintenanceController extends Controller
     public function show($id)
     {
         //
-        $maintenance = Maintenance::find($id);
+        $maintenance = Maintenance::where('id_barang', '=', '$id')->first();
         return response()->json($maintenance);
     }
 
@@ -72,7 +72,7 @@ class MaintenanceController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateMaintenanceRequest $request, Maintenance $maintenance)
+    public function update(UpdateMaintenanceRequest $request, $id)
     {
         $validatedData = $request->validate([
             'maintenance' => 'required|max:50', 
@@ -80,6 +80,12 @@ class MaintenanceController extends Controller
             'id_barang' => 'required|integer', 
             'id_user' => 'required|integer', 
         ]);
+
+        $maintenance = Maintenance::find($id);
+
+        if (!$maintenance) {
+            $maintenance = new Maintenance;
+        }
 
         $maintenance->maintenance = $validatedData['maintenance'];
         $maintenance->tanggal_maintenance = $validatedData['tanggal_maintenance'];

@@ -46,10 +46,10 @@ Content-Type: application/json
 Accept: application/json
 
 {
-    "username" : "Hans",
-    "password" : "12345678",
-    "email" : "dryan2506@gmail.com",  
-    "telepon" : "085241113455"
+    "username" : "JohnDoe",
+    "password" : "s3cur3P@ss0rd",
+    "email" : "JohnDoe@gmail.com",  
+    "telepon" : "085241143455"
 }
 
 ###

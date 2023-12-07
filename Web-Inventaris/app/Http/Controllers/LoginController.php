@@ -72,9 +72,12 @@ class LoginController extends Controller
                         'token' => $token,
                     ], 200);
                 }
-
+                $user = auth()->user();
+                $token = auth()->user()->createToken('admin-token')->plainTextToken;
                 return response()->json([
                     'message' => 'Login berhasil',
+                    'user' => new UserResource($user),
+                    'token' => $token,
                 ], 200);
             } else {
                 // Handle the case where there is no authenticated user

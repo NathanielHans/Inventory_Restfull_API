@@ -21,8 +21,8 @@ use App\Http\Controllers\PengajuanController;
 Route::get('/barang', [BarangController::class, 'index']);
 Route::get('/qrcode/{id}', [BarangController::class, 'qrcode']);
 Route::get('/barang/{id}', [BarangController::class, 'edit']);
+Route::patch('/edit-barang/{id}', [BarangController::class, 'update']);
 Route::get('/download-qrcode/{id}', [YourController::class, 'downloadQrCode'])->name('download.qrcode');
-Route::patch('/barang', [BarangController::class, 'index']);
 Route::delete('/barang', [BarangController::class, 'index']);
 Route::get('/add-barang', [BarangController::class, 'create']);
 Route::post('/add-barang', [BarangController::class, 'store']);
@@ -30,6 +30,7 @@ Route::post('/add-barang', [BarangController::class, 'store']);
 
 Route::get('/pengajuan', [PengajuanController::class, 'index']);
 Route::get('/pengajuan/{id}', [PengajuanController::class, 'show']);
+Route::patch('/pengajuan/{id}', [PengajuanController::class, 'update']);
 // Route::get('/', function () {
 //     return view('home');
 // });

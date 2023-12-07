@@ -104,7 +104,7 @@ class BarangController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateBarangRequest $request, Barang $barang)
+    public function update(UpdateBarangRequest $request, $id)
     {
         $validatedData = $request->validate([
             'nama_barang' => 'required|max:50', 
@@ -116,6 +116,11 @@ class BarangController extends Controller
             'ruangan' => 'required|max:50', 
             'penanggung_jawab' => 'required|max:50', 
         ]);
+        $barang = Barang::find($id);
+
+        if (!$barang) {
+            $barang = new Barang;
+        }
 
         $barang->nama_barang = $validatedData['nama_barang'];
         $barang->merk_type = $validatedData['merk_type'];

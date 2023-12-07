@@ -61,7 +61,12 @@ class PengajuanController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $response = Http::patch('http://127.0.0.1:8000/api/konfirmasi/'.$id);
+        // $response = Http::get('http://127.0.0.1:8000/api/barang');
+        $pengajuan = json_decode($response);
+        // dd($barang);
+        return view('pengajuan.index', compact('pengajuan'));
+
     }
 
     /**

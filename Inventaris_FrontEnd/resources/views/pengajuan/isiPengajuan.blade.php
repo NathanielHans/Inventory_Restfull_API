@@ -4,9 +4,8 @@
 @endsection
 @section("container")
     <!-- tabel informasi -->
-    <h1 style="font-size:25px;"><b>PENGAJUAN</b></h1>
-    <h1 style="font-size:25px;" align="center"><b>Barang</b></h1>
-    <div></div>
+    <h1 style="font-size:25px;" class="ms-5 mt-3"><b>PENGAJUAN</b></h1>
+    <h1 style="font-size:25px;" align="center"><b>Detail Pengajuan</b></h1>
     <table class="table table-bordered mt-4 ms-4" style="color: #FDF7E4;">
         <colgroup>
             <col span="2" style="background-color: #31304D">
@@ -33,8 +32,8 @@
           </tr>
 
           <tr>
-            <th>Next Action</th>
-            {{-- <td>{{ $barang }}</td> --}}
+            <th>Penanggung Jawab</th>
+            <td>{{ $barang->penanggung_jawab }}</td>
           </tr>
 
           <tr>
@@ -42,7 +41,7 @@
             <td>{{ $barang->status }}</td>
           </tr>
 
-        </tbody>
+        {{-- </tbody>
       </table>
     <!-- tabel informasi -->
 
@@ -52,7 +51,12 @@
       <colgroup>
           <col span="2" style="background-color: #31304D">
       </colgroup>
-      <tbody>
+      <tbody> --}}
+
+        {{-- <tr>
+          <th>Detail Pengajuan</th>
+          <td></td>
+        </tr> --}}
         <tr>
           <th>Tanggal</th>
           <td>{{ $pengajuan->tanggal_pengajuan }}</td>
@@ -67,18 +71,15 @@
           <th>Isi Pengajuan</th>
           <td>
             <textarea name="isi_pengajuan" style="color: #FDF7E4; background-color: #31304D;" rows="4" cols="50">{{ $pengajuan->isi_pengajuan }}</textarea>
-
           </td>
         </tr>
 
-        <tr>
+        {{-- <tr>
           <th>Nama Pembeli</th>
           <td></td>
-        </tr>
+        </tr> --}}
       </tbody>
     </table>
-
-    <h1 style="font-size:25px;" align="center"><b>Foto Barang</b></h1>
 
 
     <div class="container">
@@ -90,7 +91,8 @@
 
     <!-- button submit -->
     <div class="d-grid gap-2 col-6 mx-auto">
-      <button type="submit" class="button" >Terima</button>
-      <button type="submit" class="button" >Tolak</button>
+      
+      <button type="submit" class="button" ><a href="/pengajuan" class="text-decoration-none">Kembali</a></button>
+      {{-- <button type="submit" class="button" >Tolak</button> --}}
     </div>
 @endsection

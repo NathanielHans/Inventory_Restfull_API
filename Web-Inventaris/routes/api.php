@@ -39,8 +39,10 @@ Route::group(['middleware' => [HandleCors::class]], function () {
     Route::post('/pengajuan', [PengajuanController::class, 'store']);
     Route::patch('/pengajuan/{id}', [PengajuanController::class, 'update']);
     Route::delete('/pengajuan/{id}', [PengajuanController::class, 'destroy']);
+    Route::patch('/konfirmasi/{id}', [PengajuanController::class, 'Confirm']);
 
     Route::get('/maintenance', [MaintenanceController::class, 'index']);
+    Route::get('/maintenance/{id}', [MaintenanceController::class, 'show']);
     Route::post('/maintenance', [MaintenanceController::class, 'store']);
     Route::patch('/maintenance/{id}', [MaintenanceController::class, 'update']);
     Route::delete('/maintenance/{id}', [MaintenanceController::class, 'destroy']);
