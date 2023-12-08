@@ -23,18 +23,42 @@ class PengajuanController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create($id)
     {
-        //
+        $response = Http::get('http://127.0.0.1:8000/api/barang/'.$id);
+        $barang = json_decode($response);
+        // dd($barang);
+        return view('pengajuan.addPengajuan', ['barang' => $barang]);
     }
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
-        //
+{
+    $validatedData = $request->validate([
+        'nama' => 'required|string', 
+        'isi_pengajuan' => 'required|string', 
+        'tanggal_pengajuan' => 'required|date',
+        'id_barang' => 'required|integer', 
+    ]);
+    // $validatedDatalda['status']= "Belum"
+    try {
+        $response = Http::post('http://127.0.0.1:8000/api/pengajuan', $validatedData);
+        
+        // dd($response);
+        if ($response->successful()) {
+            return redirect()->back();
+        } else {
+            // If the request was not successful, handle the error as needed
+            // You might want to add more error handling logic here
+            return redirect()->back()->with(['error' => 'Failed to store pengajuan']);
+        }
+    } catch (\Exception $e) {
+        // Handle exceptions, for example, if there is an issue with the HTTP request
+        return redirect()->back()->with(['error' => 'An error occurred while processing the request']);
     }
+}
 
     /**
      * Display the specified resource.

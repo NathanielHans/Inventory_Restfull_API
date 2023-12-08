@@ -29,33 +29,5 @@
     </div>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-    <script>
-        // Lakukan permintaan HTTP ke backend untuk mengambil data barang
-        // axios.get('http://127.0.0.1:8000/api/barang')
-        //     .then(response => {
-        //         console.log(response.data);
-        //         const barangList = document.getElementById('barang-list');
-        //         const barangs = response.data.Barang;
-
-        //         // Tampilkan data barang dalam tampilan
-        //         barangs.forEach(barang => {
-        //             const listItem = document.createElement('li');
-        //             listItem.textContent = `
-        //                 Nama Barang: ${barang.nama_barang};
-        //                 Merk/Type: ${barang.merk_type};
-        //                 Status: ${barang.status};
-        //                 Harga Beli: ${barang.harga_beli};
-        //                 Tanggal Pembelian: ${barang.tanggal_pembelian};
-        //                 ID Ruangan: ${barang.id_ruangan};
-        //                 Created At: ${barang.created_at};
-        //                 Updated At: ${barang.updated_at};
-        //             `;
-        //             barangList.appendChild(listItem);
-        //         });
-        //     })
-        //     .catch(error => {
-        //         // Penanganan kesalahan
-        //         console.error('Error:', error);
-        //     });
-    </script>
+    
 @endsection

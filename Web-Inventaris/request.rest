@@ -71,3 +71,15 @@ Accept: application/json
     "nama_ruangan": "K.204",
     "jenis_ruangan": "Kelas"
 }
+
+###
+POST http://127.0.0.1:8000/api/pengajuan
+Content-Type: application/json
+Accept: application/json
+
+{
+    "nama": "Hans",
+    "isi_pengajuan": "Laptopnya ilang layar",
+    "tanggal_pengajuan": "2023-12-08",
+    "id_barang": "1"
+}

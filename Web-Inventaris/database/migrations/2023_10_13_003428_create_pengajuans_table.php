@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('pengajuans', function (Blueprint $table) {
             $table->id();
             $table->text('isi_pengajuan');
+            $table->string('nama');
             $table->string('status')->default('Belum Konfirmasi');
             $table->date('tanggal_pengajuan');
             $table->unsignedBigInteger('id_barang');

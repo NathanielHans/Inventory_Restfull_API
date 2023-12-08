@@ -18,7 +18,7 @@
         <div class="row pt-5">
             <div class="col-md-6">
                 <div style="display: flex; align-items: center;" class="col-lg-6 col-md-12 mb-4 mb-md-0">
-                    <img style="width: 180px" src="../img/usd1.png" alt="LogoPre_Order" width="50" class="me-2">
+                    <img style="width: 180px" src="/img/usd1.png" alt="LogoPre_Order" width="50" class="me-2">
                     <h3 style="color: #f76009;" class="ms-3">Inventory Website</h3>
                     <div class="col-md-4 d-flex align-items-center">
                         <span class="mb-3 mb-md-0 text-muted">&copy;Humas Universitas SanataDharma, @humas.usd.ac.id.com, +628818769346</span>

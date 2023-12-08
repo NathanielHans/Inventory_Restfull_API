@@ -31,16 +31,16 @@ class PengajuanController extends Controller
     public function store(StorePengajuanRequest $request)
     {
         $validatedData = $request->validate([
+            'nama' => 'required|string', 
             'isi_pengajuan' => 'required|string', 
             'tanggal_pengajuan' => 'required|date',
-            'id_user' => 'required|integer', 
             'id_barang' => 'required|integer', 
         ]);
 
         $pengajuan = new Pengajuan;
+        $pengajuan->nama = $validatedData['nama'];
         $pengajuan->isi_pengajuan = $validatedData['isi_pengajuan'];
         $pengajuan->tanggal_pengajuan = $validatedData['tanggal_pengajuan'];
-        $pengajuan->id_user = $validatedData['id_user'];
         $pengajuan->id_barang = $validatedData['id_barang'];
         $result = $pengajuan->save();
         if ($result) {
@@ -74,9 +74,9 @@ class PengajuanController extends Controller
     public function update(UpdatePengajuanRequest $request, $id)
     {
         $validatedData = $request->validate([
+            'nama' => 'required|string', 
             'isi_pengajuan' => 'required|string', 
             'tanggal_pengajuan' => 'required|date',
-            'id_user' => 'required|integer', 
             'id_barang' => 'required|integer', 
         ]);
         $pengajuan = Pengajuan::find($id);

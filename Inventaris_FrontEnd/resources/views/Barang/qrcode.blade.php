@@ -28,7 +28,8 @@
                           </button>
                         </p>
                         <p>Apakah terdapat Barang yang Rusak? jika, ada silahkan klik Pengajuan</p>
-                        <button type="button" class="btn btn-danger">Pengajuan</button>
+                        <a href="/pengajuan/add-pengajuan/{{ $data->data->id }}" class="btn btn-danger">Pengajuan</a>
+                        {{-- <button type="button" class="btn btn-danger">Pengajuan</button> --}}
                         
                     </div>
                 </div>

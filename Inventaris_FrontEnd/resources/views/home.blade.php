@@ -28,7 +28,7 @@
             <div class="card-body">
               <h5 class="card-title">Maintenance Barang</h5>
               <p class="card-text">Berisi data maintenance yang sudah dilakukan</p>
-              <a href="" class="btn btn-primary">Lihat</a>
+              <a href="/maintenance" class="btn btn-primary">Lihat</a>
             </div>
           </div>
       </div>

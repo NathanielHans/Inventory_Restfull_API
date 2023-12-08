@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BarangController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\MaintenanceController;
 use App\Http\Controllers\PengajuanController;
 
 /*
@@ -31,9 +32,12 @@ Route::post('/add-barang', [BarangController::class, 'store']);
 Route::get('/pengajuan', [PengajuanController::class, 'index']);
 Route::get('/pengajuan/{id}', [PengajuanController::class, 'show']);
 Route::patch('/pengajuan/{id}', [PengajuanController::class, 'update']);
+Route::get('/pengajuan/add-pengajuan/{id}', [PengajuanController::class, 'create']);
+Route::post('/pengajuan/add-pengajuan', [PengajuanController::class, 'store']);
 // Route::get('/', function () {
-//     return view('home');
-// });
+    //     return view('home');
+    // });
+Route::get('/maintenance', [MaintenanceController::class, 'index']);
 Route::get('/home', function () {
     return view('home');
 });
